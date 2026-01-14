@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Me gustas mucho</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f8dcdc, #fdf2f2);
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #b8576a;
+        }
+
+        .gallery {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 15px;
+        }
+
+        .card button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 25px;
+            background: #b8576a;
+            color: white;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #a04759;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #b8576a;
+        }
+
+        .close {
+            margin-top: 15px;
+            display: inline-block;
+            cursor: pointer;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TE DIGO TRES COSAS  BAGY?
+    --abre los 3 regalitos--</h1>
+</header>
+
+<section class="gallery">
+    <div class="card">
+        <img src="pulsa.gif" alt="Foto 1">
+        <button onclick="openModal('foto1.jfif', 'xD')">Ver</button>
+    </div>
+
+    <div class="card">
+        <img src="pulsa.gif" alt="Foto 2">
+        <button onclick="openModal('foto2.jfif', 'te ganaste un putazo')">Ver</button>
+    </div>
+
+    <div class="card">
+        <img src="pulsa.gif" alt="Foto 3">
+        <button onclick="openModal('foto3.jfif', ':p')">Ver</button>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <img id="modal-img" src="">
+        <h2 id="modal-text"></h2>
+        <div class="close" onclick="closeModal()">Cerrar</div>
+    </div>
+</div>
+
+<script>
+    function openModal(image, text) {
+        document.getElementById('modal-img').src = image;
+        document.getElementById('modal-text').innerText = text;
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
+
